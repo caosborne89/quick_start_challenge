@@ -33,6 +33,7 @@ function qs_challenge_theme($existing, $type, $theme, $path) {
       'variables' => [
         'default_time_zone' => NULL,
         'site_name' => NULL,
+        'number_of_accounts' => NULL,
       ],
     ],
   ];
