@@ -1,0 +1,5 @@
+name: Quick Start Challenge - Andy
+description: This module provides admins a way to configure a login message to users that provides a link to a page with information about the site.
+type: module
+core_version_requirement: ^9
+package: Custom

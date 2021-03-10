@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ *
+ * Quickstart Challenge - Andy module file
+ */
+
+use Drupal\user\UserInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_user_login()
+ */
+
+function qs_challenge_user_login(UserInterface $account) {
+  if($account->hasRole('administrator')) {
+    $config = \Drupal::config('qs_challenge.custom_site_info_link_message');
+    $url = Url::fromRoute('qs_challenge.site_information');
+    $link = Link::fromTextAndUrl('Site information', $url)->toString();
+    $messenger = \Drupal::messenger();
+    $messenger->addMessage(t($config->get('site_info_link_message') . ' @link', array('@link' => $link)), $messenger::TYPE_STATUS);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function qs_challenge_theme($existing, $type, $theme, $path) {
+  return [
+    'site-information' => [
+      'variables' => [
+        'default_time_zone' => NULL,
+        'site_name' => NULL,
+      ],
+    ],
+  ];
+}
+

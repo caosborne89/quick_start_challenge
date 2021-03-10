@@ -1,0 +1,14 @@
+qs_challenge.message_config_form:
+  path: '/admin/config/site-info-message-config'
+  defaults:
+    _form: Drupal\qs_challenge\Form\SiteInformationLinkMessageConfigurationForm
+    _title: 'Site information link message configuration'
+  requirements:
+    _role: 'administrator'
+qs_challenge.site_information:
+  path: '/site-information'
+  defaults:
+    _controller: Drupal\qs_challenge\Controller\SiteInformationController::siteInformation
+    _title: 'QS Challenge: Site Information'
+  requirements:
+    _role: 'authenticated'
