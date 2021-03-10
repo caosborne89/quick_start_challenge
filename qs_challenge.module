@@ -18,9 +18,9 @@ function qs_challenge_user_login(UserInterface $account) {
   if($account->hasRole('authenticated')) {
     $config = \Drupal::config('qs_challenge.custom_site_info_link_message');
     $url = Url::fromRoute('qs_challenge.site_information');
-    $link = Link::fromTextAndUrl('Site information', $url)->toString();
+    $link = Link::fromTextAndUrl($config->get('site_info_link_message'), $url)->toString();
     $messenger = \Drupal::messenger();
-    $messenger->addMessage(t($config->get('site_info_link_message') . ' @link', array('@link' => $link)), $messenger::TYPE_STATUS);
+    $messenger->addMessage(t('@link', array('@link' => $link)), $messenger::TYPE_STATUS);
   }
 }
 
