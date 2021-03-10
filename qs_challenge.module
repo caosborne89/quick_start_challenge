@@ -15,7 +15,7 @@ use Drupal\Core\Url;
  */
 
 function qs_challenge_user_login(UserInterface $account) {
-  if($account->hasRole('administrator')) {
+  if($account->hasRole('authenticated')) {
     $config = \Drupal::config('qs_challenge.custom_site_info_link_message');
     $url = Url::fromRoute('qs_challenge.site_information');
     $link = Link::fromTextAndUrl('Site information', $url)->toString();

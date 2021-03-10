@@ -5,12 +5,22 @@ namespace Drupal\qs_challenge\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Configuration form for the message that authenticated users
+ * are presented with that provides a link to the Site information page
+ */
 class SiteInformationLinkMessageConfigurationForm extends ConfigFormBase {
 
+  /**
+   * {@inheritdoc}
+   */
   public function getEditableConfigNames() {
     return ['qs_challenge.custom_site_info_link_message'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getFormId() {
     return 'site_info_link_message_config';
   }
